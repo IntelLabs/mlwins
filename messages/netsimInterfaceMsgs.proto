@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package netsimInterfaceMsgs;
+
+
+enum MessageType {
+    MSG_INIT = 0;
+    MSG_CRENODE = 1;
+    MSG_MODPOS = 2;
+    MSG_SCHTRF = 3;
+    MSG_RUNSIM = 4;
+    MSG_TERMINATE = 5;
+}
+
+message SimStepRequest {
+    float simTime = 2;
+}
+
+message SimStepResponse {
+    int32 status = 1;
+    string description = 2;
+}
+
+message InitSimulationRequest {
+    float simTime = 1;
+}
+
+message InitSimulationResponse {
+    int32 status = 1;
+    string description = 2;
+}
+
+message CreateNodeRequest {
+    int32 numNodes = 1;
+}
+
+message CreateNodeResponse {
+    int32 status = 1;
+    string description = 2;
+    map<int32, string> nodeIDs = 3;
+}
+
+message UpdateLocationRequest {
+    int32 nodeID = 1;
+    float x = 2;
+    float y = 3;
+}
+
+message UpdateLocationResponse {
+    int32 status = 1;
+    string description = 2; 
+}
+
+message ScheduleTrafficRequest {
+    int32 srcNodeID = 1;
+    int32 dstNodeID = 2;
+    int32 pktCount = 3;
+    int32 pktSize = 4;
+}
+
+message ScheduleTrafficResponse {
+    int32 status = 1;
+    string description = 2; 
+}
+
+message SimulateOneStepRequest {
+    float simTime = 1;
+}
+
+message SimulateOneStepResponse {
+    int32 status = 1;
+    string description = 2;
+    repeated int32 txIdList = 3;
+    repeated int32 rxIdList = 4;
+    repeated int32 txPktCountList = 5;
+    repeated int32 rxPktCountList = 6;
+}
+
+message ControllerRequest{
+    int32 messageType = 1;
+    oneof subCommands {
+        InitSimulationRequest   init = 2;
+        CreateNodeRequest     create = 3;
+        UpdateLocationRequest update = 4;
+        ScheduleTrafficRequest  sche = 5;
+        SimulateOneStepRequest   sim = 6;
+    }
+}
+
+message ControllerResponse{
+    int32 messageType = 1;
+    oneof subResponds {
+        InitSimulationResponse   initRes = 2;
+        CreateNodeResponse     createRes = 3;
+        UpdateLocationResponse updateRes = 4;
+        ScheduleTrafficResponse  scheRes = 5;
+        SimulateOneStepResponse   simRes = 6;
+    }
+}

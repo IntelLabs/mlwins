@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mlsimInterfaceMsgs;
+
+enum CommandType {
+    CMD_ERROR = 0;
+    CMD_SIM_STEP_REQ = 1;
+    CMD_SIM_STEP_RSP = 2;
+    CMD_TERMINATE = 3;
+    CMD_INIT_REQ = 4;
+    CMD_INIT_RSP = 5;
+    CMD_MSG_TX_REQ = 6;
+    CMD_MSG_TX_RSP = 7;
+}
+
+message MlSimInterfaceMessage{
+    int32 messageType = 1;
+    oneof MessagePayload{
+        InitRequest initRequest = 2;
+        InitResponse initResponse = 3;
+        SimStepRequest simStepRequest = 4;
+        SimStepResponse simStepResponse = 5;
+        MsgTxRequest msgTxRequest = 6;
+        MsgTxResponse msgTxResponse = 7;
+    }
+}
+
+message InitRequest {
+    string description = 1;
+}
+
+message InitResponse {
+    string description = 1;
+    string clientName = 2;
+    string mobileNodeId = 3;
+}
+
+message SimStepRequest {
+    string clientName = 1;
+    int32 round = 2;
+    float simTime = 3;
+}
+
+message SimStepResponse {
+    string clientName = 1;
+    int32 status = 2;
+    string description = 3;
+}
+
+message MsgTxRequest {
+    string clientName = 1;
+    int32 messageSize = 3;
+}
+
+
+message MsgTxResponse {
+    string clientName = 1;
+    float simTime = 2;
+    int32 status = 3;
+}

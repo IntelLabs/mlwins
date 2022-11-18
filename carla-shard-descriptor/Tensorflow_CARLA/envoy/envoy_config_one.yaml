@@ -1,0 +1,12 @@
+params:
+  cuda_devices: []
+
+optional_plugin_components: {}
+
+shard_descriptor:
+  template: shard_descriptor.CARLAShardDescriptor
+  params:
+    envoy_name: env_one
+    port: 5000
+    tm_port: 5050
+    town_map: Town05

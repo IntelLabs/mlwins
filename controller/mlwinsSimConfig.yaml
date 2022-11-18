@@ -1,0 +1,25 @@
+controller:
+  number_of_rounds: 20
+  
+mlSimulator:
+  num_of_aggregators: 1
+  num_of_collaborators: 3
+  collaborator1:
+    ip_address: 127.0.0.1
+    port_number: 5556
+  collaborator2:
+    ip_address: 127.0.0.1
+    port_number: 5557
+  collaborator3:
+    ip_address: 127.0.0.1
+    port_number: 5558
+
+netSimulator:
+  ip_address: 127.0.0.1
+  port_number: 5555
+
+physicsSimulator:
+  ip_address: 10.54.84.176
+  port_number: 5000
+  town_map: Town05
+  number_of_ticks_per_round: 1
