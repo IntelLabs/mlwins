@@ -1,0 +1,16 @@
+1. Go to the followind directory
+    $ cd mlwins-simulation-framework/network-simulators
+2. Download ns-3 from this link: https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2
+    $ wget https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2
+    $ tar -xf ns-allinone-3.36.1.tar.bz2
+
+3. Copy netsim-interface folder under ns-allinone-3.36.1/ns-3.36.1/src/:
+    $ cp -r netsim-interface ./ns-allinone-3.36.1/ns-3.36.1/src/
+
+4. Use the following commands to build
+    $ cd ns-allinone-3.36.1/ns-3.36.1
+    $ ./ns3 clean
+    $ ./ns3 configure --enable-examples
+    $ ./ns3 build
+5. Use the following command to execute
+$ ./build/src/netsim-interface/examples/ns3.36.1-netsim-interface-example-default
