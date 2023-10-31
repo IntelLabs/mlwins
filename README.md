@@ -19,3 +19,5 @@ Currently our methods contains:
 * Run simulation(): Start the simulation with previously scheduled traffices. The server will collect transmitted and received packets from the sockets, store them in a map and send back to the controller.
 
 Notice that the traffic collection happens when the socket connection sends or receives a packet, a transmission failure means that the sockets fails to receive a certain packet.
+
+<!-- First Review - 10/31/2023 MRB -->
