@@ -1,5 +1,4 @@
-The `Machine Learning for Wireless Networking Systems Simulator` integrates Intel’s open-source tools (a) CARLA for modeling vehicular environments and autonomous driving, (b) Open Federated Learning for privacy preserving distributed machine learning, and (c) ns3 based wireless simulator.
-The tool allows for evaluation of machine learning optimizations across wireless as well as the application stack and can be used to evaluate the E2E performance with realistic datasets.
+The `Machine Learning for Wireless Networking Systems Simulator` integrates Intel’s open-source tools (a) CARLA for modeling vehicular environments and autonomous driving, (b) Open Federated Learning for privacy preserving distributed machine learning, and (c) ns3 based wireless simulator. The tool allows for evaluation of machine learning optimizations across wireless as well as the application stack and can be used to evaluate the E2E performance with realistic datasets.
 
 
 ## Brief intro to the current Network Sim interface
